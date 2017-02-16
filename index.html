@@ -67,8 +67,23 @@
 
 <div>
     <input type="textfield" id="simple-comment"></input>
-    <button id="simple-send">This is a comment believe it or not </button>
+    <button id="simple-send">Post comment</button>
 </div>
+
+<div class="col-md-8 col-md-offset-2">
+    <h2>Simple Comments</h2>
+    <div id="simple-comments">
+        <ul>
+        </ul>
+    </div>
+</div>
+
+<script>
+    $("#simple-send").on("click", function(e) {
+        $("#simple-comments ul").append("<li>" + $("#simple-comment").val() + "</li>");
+        $("#simple-comment").val("");
+    });
+</script>
 
 </body>
 </html>
