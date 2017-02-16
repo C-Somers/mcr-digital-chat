@@ -195,3 +195,29 @@ main, #messages-card {
   top: -1px;
   margin-right: 5px;
 }
+html, body {
+  padding:0 !important;
+}
+*{
+font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+.white-black{
+  background-color: black;
+  color: white;
+}
+.white-black a, .white-black a:visited {
+  color: white;
+  font-size: 42px;
+}
+.white-black div.container-fluid {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.sides {
+  border-left: 3em solid black;
+  border-right: 3em solid black;
+  background-color: white;
+}
+.row {
+  margin-top:-2em;
+}

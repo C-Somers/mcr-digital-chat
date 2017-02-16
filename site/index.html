@@ -29,54 +29,102 @@
     <link rel="stylesheet" href="styles/main.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body class="container-fluid">
 <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
+<nav class="navbar navbar-static-top white-black">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Film Central</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
 <!-- Build your app here-->
-<h2>Batgirl <span id="my-name">World</span>!</h2>
 
+<div class = "row">
+    <div class = "col-xs-3">
+        <img src="http://screencrush.com/files/2017/01/loganposter2.jpg" width="800"/>
 
-<button id="Superman" onclick="myFunction()">Try it</button>
-
-<button id="sauroman" onclick="myFunction2()">Try it</button>
-
-<button id="learn-more" class="btn btn-success btn-lg" type="button">Press me!</button>
-
-<script>
-
-    function myFunction() {
-        var person = prompt("Please enter your name", "Batman");
-        if (person != null) {
-            document.getElementById("my-name").innerHTML = person;
-        }
-    }
-
-
-    function myFunction2() {
-        var colour = prompt("Please enter your favourite colour", "Pink");
-        if (colour != null) {
-            document.getElementById("my-name").style.color = colour;
-        }
-    }
-
-    $('#learn-more').click( function() {
-        alert( 'Learn more about what?');
-    });
-
-</script>
-
-<div>
-    <input type="textfield" id="simple-comment"></input>
-    <button id="simple-send">Post comment</button>
-</div>
-
-<div class="col-md-8 col-md-offset-2">
-    <h2>Simple Comments</h2>
-    <div id="simple-comments">
-        <ul>
-        </ul>
     </div>
+    <div class = "col-xs-6 sides" style="padding-top: 2em;">
+
+        <iframe width="688" height="390"src="https://www.youtube.com/embed/DekuSxJgpbY"></iframe>
+
+
+        <div class="messaging">
+        <div class="form-group">
+            <label for="name">Display Name:</label>
+            <input type="text" class="form-control" id="name" placeholder="Jane Doe">
+        </div>
+        <div class="form-group">
+            <label for="message">Comment:</label>
+            <input type="text" id="message" class="form-control" placeholder="comment goes here" >
+        </div>
+        <button id="send" class="btn btn-default">Post comment</button>
+    </div>
+    <div class="signinout">
+        <button id="signin">Sign in</button>
+        <button id="signout">Sign out</button>
+    </div>
+    <div id="messages">
+
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/3.6.5/firebase.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/simplechat.js"></script>
+    <script>
+        var chat = new Chat();
+
+        chat.setMessageInput($("#message"));
+        chat.setDisplayNameInput($("#name"));
+        chat.setSubmitButton($("#send"));
+        chat.setSignInButton($("#signin"));
+        chat.setSignOutButton($("#signout"));
+        chat.setMessageList($("#messages"));
+    </script>
+    <script>
+        $("#send").on("click", function(){chat.sendMessage()});
+        $("#signin").on("click", function(){chat.signIn()});
+        $("#signout").on("click", function(){chat.signOut()});
+    </script>
+    <script>
+        chat.listenForMessages();
+    </script>
+
 </div>
+    <div class = "col-xs-3" style="overflow-x: hidden;">
+        <img src="images/face.png" style="    margin-left: -15px;"/>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
 
 <script>
     $("#simple-send").on("click", function(e) {
@@ -84,6 +132,9 @@
         $("#simple-comment").val("");
     });
 </script>
+
+
+<!--<iframe width="350" height="500"src="https://www.youtube.com/embed/DekuSxJgpbY"></iframe> -->
 
 </body>
 </html>
