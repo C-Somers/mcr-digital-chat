@@ -30,9 +30,40 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 
 <!-- Build your app here-->
 <h2>Batgirl <span id="my-name">World</span>!</h2>
+
+
+<button id="Superman" onclick="myFunction()">Try it</button>
+
+<button id="sauroman" onclick="myFunction2()">Try it</button>
+
+<button id="learn-more" class="btn btn-success btn-lg" type="button">Press me!</button>
+
+<script>
+
+    function myFunction() {
+        var person = prompt("Please enter your name", "Batman");
+        if (person != null) {
+            document.getElementById("my-name").innerHTML = person;
+        }
+    }
+
+
+    function myFunction2() {
+        var colour = prompt("Please enter your favourite colour", "Pink");
+        if (colour != null) {
+            document.getElementById("my-name").style.color = colour;
+        }
+    }
+
+    $('#learn-more').click( function() {
+        alert( 'Learn more about what?');
+    });
+
+</script>
 
 </body>
 </html>
